@@ -30,6 +30,13 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
+window.addEventListener("click", function(event) {
+  if (event.target == modalbg) {
+    modalbg.style.display = "none";
+  }
+});
+
+
 // validate form
 const form = document.querySelector("form");
 const firstName = document.getElementById("first");
@@ -40,6 +47,7 @@ const quantity = document.getElementById("quantity");
 const tournoi = document.getElementById("tournoi");
 const checkbox1 = document.querySelector("#checkbox1");
 const message = document.getElementById("message");
+
 
 const checkName = function (name) {
   const nameRegex = /^[a-zA-Z]{2,}$/;
@@ -211,8 +219,8 @@ const verifyInputs = function () {
   }
 };
 
+
 const confirmationModal = document.querySelector("#confirmation-modal");
-const closeButton = document.querySelector(".close");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (verifyInputs()) {
