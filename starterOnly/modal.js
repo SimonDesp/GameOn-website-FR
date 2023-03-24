@@ -211,17 +211,15 @@ const verifyInputs = function () {
   }
 };
 
+const confirmationModal = document.querySelector("#confirmation-modal");
+const closeButton = document.querySelector(".close");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
   if (verifyInputs()) {
-    modalbg.style.display = "none";
-    message.style.display = "block";
+    confirmationModal.style.display = "block";
   }
 });
 
-closeMessageBtn.addEventListener(
-  "click",
-  () => (message.style.display = "none")
-);
-messageBtn.addEventListener("click", () => (message.style.display = "none"));
+closeButton.addEventListener("click", () => {
+  confirmationModal.style.display = "none";
+});
