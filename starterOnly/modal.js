@@ -100,15 +100,12 @@ const checkCheckbox = function (element) {
 
 const createDivError = function (element, text) {
   const divError = document.createElement("div");
-  divError.style.color = "red";
-  divError.style.display = "inline-block";
-  divError.style.margin = "0 0 6px 12px";
-  divError.style.fontSize = ".6em";
   divError.classList.add(`error`);
   const divErrorText = document.createTextNode(text);
   divError.appendChild(divErrorText);
   element.appendChild(divError);
 };
+
 
 const formValidation = function (element) {
   const divErrorElement = element.parentNode.querySelector(`.error`);
