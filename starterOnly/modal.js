@@ -172,8 +172,8 @@ const formValidationError = function (element) {
       }
       break;
     case "tournoi":
-      if (existingError) {
-        existingError.textContent = "Vous devez choisir une option.";
+      if (element.querySelector('.error')) {
+        element.querySelector('.error').textContent = "Vous devez choisir une option.";
       } else {
         createDivError(element, "Vous devez choisir une option.");
       }
@@ -226,8 +226,4 @@ form.addEventListener("submit", (e) => {
   if (verifyInputs()) {
     confirmationModal.style.display = "block";
   }
-});
-
-closeButton.addEventListener("click", () => {
-  confirmationModal.style.display = "none";
 });
