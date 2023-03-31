@@ -224,3 +224,22 @@ form.addEventListener("submit", (e) => {
     confirmationModal.style.display = "block";
   }
 });
+
+const modalbgConfirmation = document.querySelector(".modal");
+const modalBtnConfirmation = document.querySelectorAll(".modal-btn");
+const closeConfirmation = document.querySelectorAll(".close-confirmation");
+const closeConfirmationBtn = document.querySelectorAll(".btn-close");
+
+// close modal event with (X)
+closeConfirmation.forEach((span) => span.addEventListener("click", closeModalConf));
+closeConfirmationBtn.forEach((input) => input.addEventListener("click", closeModalConf));
+// close modal form
+function closeModalConf() {
+  modalbgConfirmation.style.display = "none";
+}
+
+window.addEventListener("click", function(event) {
+  if (event.target == modalbgConfirmation) {
+    modalbgConfirmation.style.display = "none";
+  }
+});
