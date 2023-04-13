@@ -527,13 +527,6 @@ footer {
   }
 }
 
-.error {
-  color: red;
-  display: inline-block;
-  margin: 0 0 6px 12px;
-  font-size: 0.6em;
-}
-
 
 .modal {
   display: none;
@@ -610,4 +603,9 @@ footer {
   font-size: 1.6em;
   text-align: center;
   padding: 141px;
+}
+
+.error-message {
+  font-size: 19px;
+  color: #fe142f;
 }
