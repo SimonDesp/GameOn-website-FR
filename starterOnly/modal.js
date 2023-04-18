@@ -36,7 +36,6 @@ window.addEventListener("click", function (event) {
   }
 });
 
-
 // Récupérer les champs du formulaire
 const firstNameField = document.getElementById('first');
 const lastNameField = document.getElementById('last');
@@ -46,14 +45,12 @@ const quantityField = document.getElementById('quantity');
 const tournoiLocationField = document.getElementsByName("location");
 const ConditionsField = document.getElementById('checkbox1');
 
-
 const btnValid = document.getElementById('btnValid')
 
 btnValid.addEventListener("click", function (event) {
   event.preventDefault()
   validateForm()
 });
-
 
 // ALGO
 
@@ -80,11 +77,9 @@ function validateForm() {
     //fermer le formulaire
     closeModal()
     //ouvrir une modale de confirmation
-    document.getElementById('modale-confirmation').style.display = 'block';
+   launchModalConfirmation()
   }
 }
-
-
 
 function FirstNameValidate() {
   const nameRegex = /^[a-zA-Z]{2,}$/;
@@ -123,9 +118,9 @@ function emailValidate() {
 }
 
 function birthdateValidate() {
-  const birthdaRegex = /^\d{2}\/\d{2}\/\d{4}$/
-  const birthdate = birthdateField.value
-  if (birthdaRegex.test(birthdate)) {
+  const dateToday = Date.now();
+  const birthDateMinimum = dateToday - Date.parse(birthdateField.value);
+  if (birthdateField.value !== "" && birthDateMinimum >= 410240376000) {
     document.getElementById('birthdate-error').innerHTML = '';
     return true
   } else {
@@ -155,10 +150,10 @@ function tournoiLocationValidate() {
     }
   }
   if (locationSelected) {
-    document.getElementsByName("location-error").innerHTML = '';
+    document.getElementById("location-error").innerHTML = '';
     return true
   } else {
-    document.getElementsByName("location-error").innerHTML = 'Vous devez choisir une option.';
+    document.getElementById("location-error").innerHTML = 'Vous devez choisir une option.';
     return false
   }
 }
@@ -172,3 +167,30 @@ function conditionsValidate() {
     return false
   }
 }
+
+
+const modalconfirmation = document.querySelector(".modal");
+
+// launch modal form
+function launchModalConfirmation() {
+  modalconfirmation.style.display = "block";
+}
+
+
+const closeSpanConfirmation = document.querySelector(".close-confirmation");
+const closeBtnConfirmation = document.querySelector(".btn-close");
+// close modal form
+function closeModalConfirmation() {
+  modalconfirmation.style.display = "none";
+}
+
+// close modal event with (X) and Btn
+closeSpanConfirmation.forEach((span) => span.addEventListener("click", closeModalConfirmation));
+
+closeBtnConfirmation.forEach((input) => input.addEventListener("click", closeModalConfirmation));
+
+window.addEventListener("click", function (event) {
+  if (event.target == modalconfirmation) {
+    modalconfirmation.style.display = "none";
+  }
+});

@@ -599,13 +599,14 @@ footer {
 }
 
 .message-confirmation {
-  margin-top: 150px;
-  font-size: 1.6em;
-  text-align: center;
-  padding: 141px;
+    font-size: 1.6em;
+    height: 600px;
+    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .error-message {
-  font-size: 19px;
+  font-size: 14px;
   color: #fe142f;
 }
