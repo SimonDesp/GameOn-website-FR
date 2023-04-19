@@ -124,7 +124,7 @@ function birthdateValidate() {
     document.getElementById('birthdate-error').innerHTML = '';
     return true
   } else {
-    document.getElementById('birthdate-error').innerHTML = 'Vous devez entrer votre date de naissance.';
+    document.getElementById('birthdate-error').innerHTML = 'Vous devez entrer votre date de naissance et avoir au moins 13 ans.';
     return false
   }
 }
@@ -177,8 +177,8 @@ function launchModalConfirmation() {
 }
 
 
-const closeSpanConfirmation = document.querySelector(".close-confirmation");
-const closeBtnConfirmation = document.querySelector(".btn-close");
+const closeSpanConfirmation = document.querySelectorAll(".close-confirmation");
+const closeBtnConfirmation = document.querySelectorAll(".btn-close");
 // close modal form
 function closeModalConfirmation() {
   modalconfirmation.style.display = "none";
