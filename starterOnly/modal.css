@@ -532,26 +532,25 @@ footer {
   display: none;
   position: fixed;
   z-index: 1;
-  left: 0;
-  top: 0;
   height: 100%;
   width: 100%;
-  overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
 
 .modal-content {
-  margin: 5% auto;
-  width: 100%;
+  display: flex;
   max-width: 500px;
+  min-height: 700px;
+  justify-content: center;
+  align-items: center;
+  margin: 5% auto;
+  padding-top: 10px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
-  border-radius: 10px;
-  overflow: hidden;
+  border-radius: 15px;
   position: relative;
   color: #fff;
-  padding-top: 10px;
 }
 
 
@@ -594,16 +593,12 @@ footer {
   padding: 15px 23px;
   bottom: 20px;
   position: absolute;
-  margin-left: 160px;
   width: 190px;
 }
 
 .message-confirmation {
     font-size: 1.6em;
-    height: 600px;
     text-align: center;
-    display: flex;
-    align-items: center;
 }
 
 .error-message {
