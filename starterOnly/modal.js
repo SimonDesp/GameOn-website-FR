@@ -7,32 +7,35 @@ function editNav() {
   }
 }
 
-// DOM Elements
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
-
-const closeSpan = document.querySelectorAll(".close");
+// gestion du formulaire
+const modalForm = document.getElementById("modal-form");
+const modalFormBtn = document.querySelector(".modal-btn");
+const formData = modalForm.querySelectorAll(".formData");
+const closeFormSpan = modalForm.querySelector(".close");
+const homeBtn = document.getElementById("homeBtn")
 
 // launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+modalFormBtn.addEventListener("click", launchModal);
+homeBtn.addEventListener("click", launchModal);
 
 // launch modal form
 function launchModal() {
-  modalbg.style.display = "block";
+  modalForm.style.display = "block";
 }
 
+
+
 // close modal event with (X)
-closeSpan.forEach((span) => span.addEventListener("click", closeModal));
+closeFormSpan.addEventListener("click", closeModalForm);
 
 // close modal form
-function closeModal() {
-  modalbg.style.display = "none";
+function closeModalForm() {
+  modalForm.style.display = "none";
 }
 
 window.addEventListener("click", function (event) {
-  if (event.target == modalbg) {
-    modalbg.style.display = "none";
+  if (event.target == modalForm) {
+    modalForm.style.display = "none";
   }
 });
 
@@ -45,18 +48,17 @@ const quantityField = document.getElementById('quantity');
 const tournoiLocationField = document.getElementsByName("location");
 const ConditionsField = document.getElementById('checkbox1');
 
-const btnValid = document.getElementById('btnValid')
+const btnValid = document.getElementById('btnValid');
 
 btnValid.addEventListener("click", function (event) {
-  event.preventDefault()
-  validateForm()
+  event.preventDefault();
+  validateForm();
 });
 
-// ALGO
-
+// validation du formulaire
 function validateForm() {
 
-  // afficher les messages d'erreur
+  // gestion des messages d'erreur
   const isValidFirstName = FirstNameValidate();
   const isValidLastName = LastNameValidate();
   const isValidEmail = emailValidate();
@@ -75,16 +77,17 @@ function validateForm() {
     tournoiLocationField.value = '';
     ConditionsField.checked = false;
     //fermer le formulaire
-    closeModal()
+    closeModalForm();
     //ouvrir une modale de confirmation
-   launchModalConfirmation()
+    launchModalConfirmation();
+    // valeur du formulaire
+    console.log()
   }
 }
 
 function FirstNameValidate() {
-  const nameRegex = /^[a-zA-Z -]{2,}$/;
   const firstName = firstNameField.value.trim();
-  if (nameRegex.test(firstName)) {
+  if (firstName.length >= 2) {
     document.getElementById('first-error').innerHTML = '';
     return true;
   } else {
@@ -94,9 +97,8 @@ function FirstNameValidate() {
 }
 
 function LastNameValidate() {
-  const nameRegex = /^[a-zA-Z -]{2,}$/;
   const lastName = lastNameField.value.trim();
-  if (nameRegex.test(lastName)) {
+  if (lastName.length >= 2) {
     document.getElementById('last-error').innerHTML = '';
     return true
   } else {
@@ -168,26 +170,22 @@ function conditionsValidate() {
   }
 }
 
-
+// gestion de la modale de confirmation
 const modalconfirmation = document.querySelector(".modal");
+const closeSpanConfirmation = document.querySelector(".close-confirmation");
+const closeBtnConfirmation = document.querySelector(".btn-close");
 
 // launch modal form
 function launchModalConfirmation() {
   modalconfirmation.style.display = "block";
 }
-
-
-const closeSpanConfirmation = document.querySelectorAll(".close-confirmation");
-const closeBtnConfirmation = document.querySelectorAll(".btn-close");
 // close modal form
 function closeModalConfirmation() {
   modalconfirmation.style.display = "none";
 }
-
 // close modal event with (X) and Btn
-closeSpanConfirmation.forEach((span) => span.addEventListener("click", closeModalConfirmation));
-
-closeBtnConfirmation.forEach((input) => input.addEventListener("click", closeModalConfirmation));
+closeSpanConfirmation.addEventListener("click", closeModalConfirmation);
+closeBtnConfirmation.addEventListener("click", closeModalConfirmation);
 
 window.addEventListener("click", function (event) {
   if (event.target == modalconfirmation) {
