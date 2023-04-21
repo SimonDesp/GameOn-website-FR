@@ -82,7 +82,7 @@ function validateForm() {
 }
 
 function FirstNameValidate() {
-  const nameRegex = /^[a-zA-Z]{2,}$/;
+  const nameRegex = /^[a-zA-Z -]{2,}$/;
   const firstName = firstNameField.value.trim();
   if (nameRegex.test(firstName)) {
     document.getElementById('first-error').innerHTML = '';
@@ -94,7 +94,7 @@ function FirstNameValidate() {
 }
 
 function LastNameValidate() {
-  const nameRegex = /^[a-zA-Z]{2,}$/;
+  const nameRegex = /^[a-zA-Z -]{2,}$/;
   const lastName = lastNameField.value.trim();
   if (nameRegex.test(lastName)) {
     document.getElementById('last-error').innerHTML = '';
