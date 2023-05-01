@@ -23,8 +23,6 @@ function launchModal() {
   modalForm.style.display = "block";
 }
 
-
-
 // close modal event with (X)
 closeFormSpan.addEventListener("click", closeModalForm);
 
@@ -91,7 +89,7 @@ function FirstNameValidate() {
     document.getElementById('first-error').innerHTML = '';
     return true;
   } else {
-    document.getElementById('first-error').innerHTML = 'Veuillez entrer 2 caractères ou plus pour le champ du prenom.';
+    document.getElementById('first-error').innerHTML = 'Veuillez entrer 2 caractères ou plus pour le champ du prénom.';
     return false;
   }
 }
