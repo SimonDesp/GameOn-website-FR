@@ -9,13 +9,15 @@ function editNav() {
 
 // gestion du formulaire
 const modalForm = document.getElementById("modal-form");
-const modalFormBtn = document.querySelector(".modal-btn");
+const modalFormBtn = document.querySelectorAll(".modal-btn");
 const formData = modalForm.querySelectorAll(".formData");
 const closeFormSpan = modalForm.querySelector(".close");
 const homeBtn = document.getElementById("homeBtn")
 
 // launch modal event
-modalFormBtn.addEventListener("click", launchModal);
+modalFormBtn.forEach((item) => {
+  item.addEventListener('click', launchModal)
+});
 homeBtn.addEventListener("click", launchModal);
 
 // launch modal form
